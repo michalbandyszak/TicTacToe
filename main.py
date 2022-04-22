@@ -2,11 +2,6 @@ the_board = {'7': ' ', '8': ' ', '9': ' ',
             '4': ' ', '5': ' ', '6': ' ',
             '1': ' ', '2': ' ', '3': ' '}
 
-board_keys = []
-
-for key in the_board:
-    board_keys.append(key)
-
 
 def print_board(board):
     print(board['7'] + '|' + board['8'] + '|' + board['9'])
@@ -26,7 +21,7 @@ def game():
     for i in range(10):
         print_board(the_board)
         print("It's your turn," + turn + ". Move to which place?")
-
+        print()
         move = input()
 
         if the_board[move] == ' ':
@@ -36,7 +31,6 @@ def game():
             print("That place is already filled.\n Choose a different place")
             continue
 
-        # Now we will check if player X or O has won,for every move after 5 moves. 
         if count >= 5:
             if the_board['7'] == the_board['8'] == the_board['9'] != ' ':  # across the top
                 print_board(the_board)
@@ -93,7 +87,7 @@ def game():
             # Now we will ask if player wants to restart the game or not.
     restart = input("Do want to play Again?(y/n)")
     if restart == "y" or restart == "Y":
-        for key in board_keys:
+        for key in the_board:
             the_board[key] = " "
 
         game()
