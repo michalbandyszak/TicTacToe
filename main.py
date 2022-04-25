@@ -20,8 +20,9 @@ def game():
 
     for i in range(10):
         print_board(the_board)
-        print("It's your turn," + turn + ". Move to which place?")
+        print("It's your turn " + turn + ". Move to which place? Please use only numbers 1-9 ")
         print()
+
         move = input()
 
         if the_board[move] == ' ':
@@ -73,22 +74,19 @@ def game():
                 print(" **** " + turn + " won. ****")
                 break
 
-                # If neither X nor O wins and the board is full, we'll declare the result as 'tie'.
         if count == 9:
             print("\nGame Over.\n")
             print("It's a Tie!!")
 
-        # Now we have to change the player after every move.
         if turn == 'X':
             turn = 'O'
         else:
             turn = 'X'
 
-            # Now we will ask if player wants to restart the game or not.
     restart = input("Do want to play Again?(y/n)")
     if restart == "y" or restart == "Y":
-        for key in the_board:
-            the_board[key] = " "
+        for i in the_board:
+            the_board[i] = " "
 
         game()
 
