@@ -13,25 +13,30 @@ def print_board(board):
     print(board['1'] + '|' + board['2'] + '|' + board['3'])
 
 
-def game():
+def game(bot_move):
     turn = 'X'
     count = 0
 
     print("The places in the board are numbered accordingly to numeric keypad. so its look like:\n"
           " 7 | 8 | 9 \n 4 | 5 | 6 \n 1 | 2 | 3 ")
 
-    for i in range(10):
+    for i in range(100):
         print_board(the_board)
         print("It's your turn " + turn + ". Move to which place? Please use only numbers 1-9 ")
         print()
 
-        move = str(random.randint(1, 9))
+        move = str(random.choice(bot_move))
 
         if the_board[move] == ' ':
             the_board[move] = turn
             count += 1
+
         else:
             print("That place is already filled.\n Choose a different place")
+            if count == 9:
+                print("\nGame Over.\n")
+                print("It's a Tie!!")
+                break
             continue
 
         if count >= 5:
@@ -76,10 +81,6 @@ def game():
                 print(" **** " + turn + " won. ****")
                 break
 
-        if count == 9:
-            print("\nGame Over.\n")
-            print("It's a Tie!!")
-
         if turn == 'X':
             turn = 'O'
         else:
@@ -90,7 +91,7 @@ def game():
         for i in the_board:
             the_board[i] = " "
 
-        game()
+        game(bot_move)
 
 
-game()
+
