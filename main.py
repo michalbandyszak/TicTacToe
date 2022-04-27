@@ -1,3 +1,5 @@
+import random
+
 the_board = {'7': ' ', '8': ' ', '9': ' ',
             '4': ' ', '5': ' ', '6': ' ',
             '1': ' ', '2': ' ', '3': ' '}
@@ -23,7 +25,7 @@ def game():
         print("It's your turn " + turn + ". Move to which place? Please use only numbers 1-9 ")
         print()
 
-        move = input()
+        move = str(random.randint(1, 9))
 
         if the_board[move] == ' ':
             the_board[move] = turn
