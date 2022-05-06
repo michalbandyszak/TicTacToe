@@ -1,8 +1,8 @@
 import random
 
 the_board = {'7': ' ', '8': ' ', '9': ' ',
-            '4': ' ', '5': ' ', '6': ' ',
-            '1': ' ', '2': ' ', '3': ' '}
+             '4': ' ', '5': ' ', '6': ' ',
+             '1': ' ', '2': ' ', '3': ' '}
 
 
 def print_board(board):
@@ -14,21 +14,21 @@ def print_board(board):
 
 
 def game(bot_move):
-    turn = 'X'
+    player = 'X'
     count = 0
 
-    print("The places in the board are numbered accordingly to numeric keypad. so its look like:\n"
+    print("The places in the board are numbered accordingly to numeric keypad so its look like:\n"
           " 7 | 8 | 9 \n 4 | 5 | 6 \n 1 | 2 | 3 ")
 
     for i in range(100):
         print_board(the_board)
-        print("It's your turn " + turn + ". Move to which place? Please use only numbers 1-9 ")
+        print("It's your turn " + player + ". To which place would you like to move? Please use only numbers 1-9 ")
         print()
 
         move = str(random.choice(bot_move))
 
         if the_board[move] == ' ':
-            the_board[move] = turn
+            the_board[move] = player
             count += 1
 
         else:
@@ -43,48 +43,48 @@ def game(bot_move):
             if the_board['7'] == the_board['8'] == the_board['9'] != ' ':  # across the top
                 print_board(the_board)
                 print("\nGame Over.\n")
-                print(" **** " + turn + " won. ****")
+                print(" **** " + player + " won. ****")
                 break
             elif the_board['4'] == the_board['5'] == the_board['6'] != ' ':  # across the middle
                 print_board(the_board)
                 print("\nGame Over.\n")
-                print(" **** " + turn + " won. ****")
+                print(" **** " + player + " won. ****")
                 break
             elif the_board['1'] == the_board['2'] == the_board['3'] != ' ':  # across the bottom
                 print_board(the_board)
                 print("\nGame Over.\n")
-                print(" **** " + turn + " won. ****")
+                print(" **** " + player + " won. ****")
                 break
             elif the_board['1'] == the_board['4'] == the_board['7'] != ' ':  # down the left side
                 print_board(the_board)
                 print("\nGame Over.\n")
-                print(" **** " + turn + " won. ****")
+                print(" **** " + player + " won. ****")
                 break
             elif the_board['2'] == the_board['5'] == the_board['8'] != ' ':  # down the middle
                 print_board(the_board)
                 print("\nGame Over.\n")
-                print(" **** " + turn + " won. ****")
+                print(" **** " + player + " won. ****")
                 break
             elif the_board['3'] == the_board['6'] == the_board['9'] != ' ':  # down the right side
                 print_board(the_board)
                 print("\nGame Over.\n")
-                print(" **** " + turn + " won. ****")
+                print(" **** " + player + " won. ****")
                 break
             elif the_board['7'] == the_board['5'] == the_board['3'] != ' ':  # diagonal
                 print_board(the_board)
                 print("\nGame Over.\n")
-                print(" **** " + turn + " won. ****")
+                print(" **** " + player + " won. ****")
                 break
             elif the_board['1'] == the_board['5'] == the_board['9'] != ' ':  # diagonal
                 print_board(the_board)
                 print("\nGame Over.\n")
-                print(" **** " + turn + " won. ****")
+                print(" **** " + player + " won. ****")
                 break
 
-        if turn == 'X':
-            turn = 'O'
+        if player == 'X':
+            player = 'O'
         else:
-            turn = 'X'
+            player = 'X'
 
     restart = input("Do want to play Again?(y/n)")
     if restart == "y" or restart == "Y":
@@ -92,6 +92,3 @@ def game(bot_move):
             the_board[i] = " "
 
         game(bot_move)
-
-
-
