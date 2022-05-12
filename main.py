@@ -1,5 +1,5 @@
-import random
 
+import random
 the_board = {'7': ' ', '8': ' ', '9': ' ',
              '4': ' ', '5': ' ', '6': ' ',
              '1': ' ', '2': ' ', '3': ' '}
@@ -13,21 +13,19 @@ def print_board(board):
     print(board['1'] + '|' + board['2'] + '|' + board['3'])
 
 
-def game(bot_move):
+def game():
     player = 'X'
     count = 0
 
     print("The places in the board are numbered accordingly to numeric keypad so its look like:\n"
           " 7 | 8 | 9 \n 4 | 5 | 6 \n 1 | 2 | 3 ")
-
     for i in range(100):
         print_board(the_board)
         print("It's your turn " + player + ". To which place would you like to move? Please use only numbers 1-9 ")
         print()
+        move = str(input())
 
-        move = str(random.choice(bot_move))
-
-        if the_board[move] == ' ':
+        if the_board[move] == " ":
             the_board[move] = player
             count += 1
 
@@ -85,10 +83,11 @@ def game(bot_move):
             player = 'O'
         else:
             player = 'X'
+# restart = input("Do want to play Again?(y/n)")
+# if restart == "y" or restart == "Y":
 
-    restart = input("Do want to play Again?(y/n)")
-    if restart == "y" or restart == "Y":
-        for i in the_board:
-            the_board[i] = " "
+#
+#     game()
 
-        game(bot_move)
+
+#game()
