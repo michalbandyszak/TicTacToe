@@ -1,5 +1,3 @@
-
-import random
 the_board = {'7': ' ', '8': ' ', '9': ' ',
              '4': ' ', '5': ' ', '6': ' ',
              '1': ' ', '2': ' ', '3': ' '}
@@ -86,8 +84,4 @@ def game():
 # restart = input("Do want to play Again?(y/n)")
 # if restart == "y" or restart == "Y":
 
-#
 #     game()
-
-
-#game()

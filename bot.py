@@ -10,10 +10,3 @@ class Test(unittest.TestCase):
     @mock.patch('builtins.input', side_effect=bot_move)
     def test_1(self, input):
         main.game()
-
-
-if __name__ == " __main__":
-    unittest.main
-
-
-
